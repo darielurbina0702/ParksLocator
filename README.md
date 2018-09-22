@@ -12,11 +12,7 @@ Instruction
 Run the Api
 Paste the following url after the (localhost:port) /api/ParksLocator?ZipCode=40222&Total=5
 
-Warning 
-I am using the following nuget package GoogleMaps.LocationServices that is free and just allow to do a few  calls to the ggogle api.
-When this happen i return a bad response showing the explained below.
-
-I did not include alll the validation needed just the minimum for time reasons.
+I did not include all the validation needed just the minimum for time reasons.
 
 
 

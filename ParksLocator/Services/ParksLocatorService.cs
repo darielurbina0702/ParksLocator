@@ -31,7 +31,7 @@ namespace ParksLocator.Services
         public async Task<IEnumerable<ParkDistance>> GetNearestParksAsync(ParksServiceRequest request)
         {
             ValidateRequest(request);
-            var visitorCoordinates = _googleApiClient.GetZipCoordinates(request.ZipCode);
+            var visitorCoordinates = await _googleApiClient.GetZipCoordinates(request.ZipCode);
             var parkDiststances = await GetParkDistancesAsync(request.Total, visitorCoordinates);            
             request.Total = request.Total != 0 ? request.Total : parkDiststances.Count();
             parkDiststances = parkDiststances.AsQueryable().OrderBy(GetSortSelector()).Take(request.Total);

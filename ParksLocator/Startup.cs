@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ParksLocator.Clients;
 using ParksLocator.Clients.Interfaces;
+using ParksLocator.Options;
 using ParksLocator.Repositories;
 using ParksLocator.Repositories.Interfaces;
 using ParksLocator.Services;
@@ -30,6 +31,8 @@ namespace ParksLocator
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
+
+            services.Configure<GoogleApiSettings>(Configuration.GetSection("GoogleApiSettings"));
 
             services.AddScoped<IParksLocatorService, ParksLocatorService>();
             services.AddScoped<IParksLocatorRepository, ParksLocatorRepository>();

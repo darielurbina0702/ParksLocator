@@ -1,9 +1,10 @@
 ﻿using ParksLocator.Clients.Models;
+using System.Threading.Tasks;
 
 namespace ParksLocator.Clients.Interfaces
 {
     public interface IGoogleApiClient
     {
-        ZipCoordinates GetZipCoordinates(string zipCode);
+        Task<ZipCoordinates> GetZipCoordinates(string zipCode);
     }
 }
