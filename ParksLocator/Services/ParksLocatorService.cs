@@ -34,7 +34,7 @@ namespace ParksLocator.Services
             var visitorCoordinates = await _googleApiClient.GetZipCoordinates(request.ZipCode);
             var parkDiststances = await GetParkDistancesAsync(request.Total, visitorCoordinates);            
             request.Total = request.Total != 0 ? request.Total : parkDiststances.Count();
-            parkDiststances = parkDiststances.AsQueryable().OrderBy(GetSortSelector()).Take(request.Total);
+            parkDiststances = parkDiststances.AsQueryable().OrderBy(a => a.Distance).Take(request.Total);
             return parkDiststances;
         }
 
@@ -52,10 +52,5 @@ namespace ParksLocator.Services
             var parksDistances = _distanceService.GetParksDistance(parksCoordinates, visitorCoordinates);
             return parksDistances;
         }       
-
-        private Expression<Func<ParkDistance, object>> GetSortSelector()
-        {
-            return a => a.Distance;
-        }
     }
 }
