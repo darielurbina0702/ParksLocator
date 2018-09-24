@@ -1,5 +1,4 @@
-﻿using GoogleMaps.LocationServices;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using ParksLocator.Clients.Interfaces;
 using ParksLocator.Clients.Models;
