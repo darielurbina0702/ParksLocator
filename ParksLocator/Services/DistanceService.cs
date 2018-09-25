@@ -19,10 +19,10 @@ namespace ParksLocator.Services
 
         private ParkDistance GetParkDistance(ParkCoordinates park, ZipCoordinates visitor)
         {
-            var dealerCoordinates = new GeoCoordinate((double)park.Latitude, (double)park.Longitude);
-            var customerCoordinates = new GeoCoordinate((double)visitor.Latitude, (double)visitor.Longitude);
+            var parkCoordinates = new GeoCoordinate((double)park.Latitude, (double)park.Longitude);
+            var visitorCoordinates = new GeoCoordinate((double)visitor.Latitude, (double)visitor.Longitude);
 
-            var distance = dealerCoordinates.GetDistanceTo(customerCoordinates);
+            var distance = parkCoordinates.GetDistanceTo(visitorCoordinates);
 
             distance = Math.Round(distance, 2) / 1000;
 
